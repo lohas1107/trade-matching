@@ -9,19 +9,35 @@ plugins {
     java
 }
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-}
-
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
-tasks.named<Test>("test") {
-    useJUnitPlatform()
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation("io.cucumber:cucumber-java:7.15.0")
+}
+
+configurations {
+    val cucumberRuntime: Configuration by configurations.creating {
+        extendsFrom(configurations["testImplementation"])
+    }
+}
+
+task("cucumber") {
+    dependsOn("assemble", "compileTestJava")
+    doLast {
+        javaexec {
+            mainClass.set("io.cucumber.core.cli.Main")
+            classpath = configurations["cucumberRuntime"] + sourceSets["main"].output + sourceSets["test"].output
+            args = listOf("--plugin", "pretty",
+                    "--glue", "cc.secondbrain.trade",
+                    "src/test/resources")
+        }
+    }
 }
