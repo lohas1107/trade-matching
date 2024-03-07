@@ -11,29 +11,23 @@ public class SkeletonSteps {
     private String today;
     private String actual;
 
-    @Given("today is Sunday")
-    public void today_is_sunday() {
-        today = "Sunday";
-    }
-
-    @Given("today is Friday")
-    public void todayIsFriday() {
-        today = "Friday";
+    @Given("today is {string}")
+    public void today_is(String today) {
+        this.today = today;
     }
 
     @When("I ask whether it's Friday yet")
     public void i_ask_whether_it_s_friday_yet() {
-        DayChecker dayChecker = new DayChecker();
-        actual = dayChecker.isFriday(today);
+        actual = DayChecker.isFriday(today);
     }
 
     @Then("I should be told {string}")
-    public void i_should_be_told(String reply) {
-        assertThat(actual).isEqualTo(reply);
+    public void i_should_be_told(String expected) {
+        assertThat(actual).isEqualTo(expected);
     }
 
     private static class DayChecker {
-        public String isFriday(String day) {
+        public static String isFriday(String day) {
             return "Friday".equals(day) ? "TGIF" : "Nope";
         }
     }
