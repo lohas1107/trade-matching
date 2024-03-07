@@ -34,7 +34,7 @@ public class SkeletonSteps {
 
     private static class DayChecker {
         public String isFriday(String day) {
-            return "Nope";
+            return "Friday".equals(day) ? "TGIF" : "Nope";
         }
     }
 }
