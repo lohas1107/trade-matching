@@ -29,7 +29,7 @@ public class SkeletonSteps {
 
     private static class DayChecker {
         public String isFriday(String day) {
-            return null;
+            return "Nope";
         }
     }
 }
