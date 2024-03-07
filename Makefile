@@ -1,5 +1,5 @@
 e2e:
 	cd e2e && \
-	./gradlew test
+	./gradlew cucumber
 
 .PHONY: e2e
