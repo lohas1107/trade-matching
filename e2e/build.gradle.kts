@@ -21,6 +21,7 @@ repositories {
 
 dependencies {
     testImplementation("io.cucumber:cucumber-java:7.15.0")
+    testImplementation("org.assertj:assertj-core:3.25.3")
 }
 
 configurations {
