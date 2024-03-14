@@ -21,17 +21,27 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2023.0.0")
+        mavenBom("com.github.leeonky:java-TD-tools-dependencies:0.0.9")
+    }
+}
+
 dependencies {
     testImplementation("org.assertj:assertj-core:3.25.3")
 
+    testImplementation("mysql:mysql-connector-java:8.0.33")
     testImplementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.cloud:spring-cloud-starter-openfeign")
     testImplementation("io.cucumber:cucumber-java:7.15.0")
-}
-
-configurations {
-    val cucumberRuntime: Configuration by configurations.creating {
-        extendsFrom(configurations["testImplementation"])
-    }
+    testImplementation("io.cucumber:cucumber-spring:7.15.0")
+    testImplementation("com.github.leeonky:DAL-java:0.5.1")
+    testImplementation("com.github.leeonky:DAL-extension-basic:0.0.16")
+    testImplementation("com.github.leeonky:jfactory:0.3.23")
+    testImplementation("com.github.leeonky:jfactory-repo-jpa:0.1.14")
+    testImplementation("com.github.leeonky:jfactory-cucumber:0.1.31")
 }
 
 tasks.bootJar {
@@ -42,11 +52,18 @@ task("cucumber") {
     dependsOn("assemble", "testClasses")
     doLast {
         javaexec {
+            val cucumberRuntime: Configuration by configurations.creating {
+                extendsFrom(configurations["testImplementation"])
+            }
+
             mainClass.set("io.cucumber.core.cli.Main")
-            classpath = configurations["cucumberRuntime"] + sourceSets["main"].output + sourceSets["test"].output
-            args = listOf("--plugin", "pretty",
-                    "--glue", "cc.secondbrain.trade",
-                    "src/test/resources")
+            classpath = cucumberRuntime + sourceSets.main.get().output + sourceSets.test.get().output
+            args = listOf(
+                "--plugin", "pretty",
+                "--glue", "cc.secondbrain.trade",
+                "--glue", "com.github.leeonky.jfactory.cucumber",
+                "src/test/resources"
+            )
         }
     }
 }
