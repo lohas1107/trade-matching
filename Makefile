@@ -1,13 +1,11 @@
-infra: exit
-	cd infra && \
-	docker-compose up -d mysql
+INFRA_SUBDIR = infra
 
-exit:
-	cd infra && \
-	docker-compose down --rmi local --remove-orphans --volumes mysql
+infra: $(INFRA_SUBDIR)
+	$(MAKE) -C infra
 
 e2e:
 	cd e2e && \
 	./gradlew cucumber
 
+.PHONY: $(INFRA_SUBDIR)
 .PHONY: e2e
