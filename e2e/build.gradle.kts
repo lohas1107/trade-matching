@@ -7,6 +7,8 @@
 
 plugins {
     java
+    id("io.spring.dependency-management") version "1.1.4"
+    id("org.springframework.boot") version "3.2.3"
 }
 
 java {
@@ -20,8 +22,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation("io.cucumber:cucumber-java:7.15.0")
     testImplementation("org.assertj:assertj-core:3.25.3")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    testImplementation("io.cucumber:cucumber-java:7.15.0")
 }
 
 configurations {
@@ -30,8 +34,12 @@ configurations {
     }
 }
 
+tasks.bootJar {
+    enabled = false
+}
+
 task("cucumber") {
-    dependsOn("assemble", "compileTestJava")
+    dependsOn("assemble", "testClasses")
     doLast {
         javaexec {
             mainClass.set("io.cucumber.core.cli.Main")
