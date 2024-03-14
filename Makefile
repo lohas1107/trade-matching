@@ -4,7 +4,7 @@ E2E_SUBDIR = e2e
 infra: $(INFRA_SUBDIR)
 	$(MAKE) -C infra
 
-e2e: $(E2E_SUBDIR) infra
+e2e: $(E2E_SUBDIR)
 	$(MAKE) -C e2e
 
 .PHONY: $(INFRA_SUBDIR) $(E2E_SUBDIR)

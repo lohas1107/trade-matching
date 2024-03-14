@@ -13,4 +13,3 @@ spring:
     properties:
       hibernate:
         default_catalog: trade
-        dialect: org.hibernate.dialect.MySQL5Dialect
