@@ -28,6 +28,9 @@ dependencyManagement {
 }
 
 dependencies {
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
+    testImplementation("org.projectlombok:lombok:1.18.30")
+    testImplementation("com.fasterxml.jackson.core:jackson-annotations:2.16.2")
     testImplementation("org.assertj:assertj-core:3.25.3")
 
     testImplementation("org.reflections:reflections:0.10.2")
