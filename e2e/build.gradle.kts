@@ -31,7 +31,7 @@ dependencyManagement {
 dependencies {
     testImplementation("org.assertj:assertj-core:3.25.3")
 
-    testImplementation("mysql:mysql-connector-java:8.0.33")
+    testImplementation("com.mysql:mysql-connector-j:8.3.0")
     testImplementation("org.springframework.boot:spring-boot-starter-data-jpa")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.cloud:spring-cloud-starter-openfeign")
