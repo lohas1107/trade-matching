@@ -24,7 +24,6 @@ repositories {
 dependencyManagement {
     imports {
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:2023.0.0")
-        mavenBom("com.github.leeonky:java-TD-tools-dependencies:0.0.9")
     }
 }
 
