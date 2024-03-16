@@ -1,4 +1,7 @@
 spring:
+  output:
+    ansi:
+      enabled: always
   datasource:
     url: jdbc:mysql://mysql.tool.net:3306/trade?autoReconnect=true&createDatabaseIfNotExist=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
