@@ -45,6 +45,7 @@ dependencies {
     testImplementation("com.github.leeonky:jfactory:0.3.23")
     testImplementation("com.github.leeonky:jfactory-repo-jpa:0.1.14")
     testImplementation("com.github.leeonky:jfactory-cucumber:0.1.31")
+    testImplementation("com.github.leeonky:RESTful-cucumber:0.0.21")
 }
 
 tasks.bootJar {
@@ -65,6 +66,7 @@ task("cucumber") {
                 "--plugin", "pretty",
                 "--glue", "cc.secondbrain.trade",
                 "--glue", "com.github.leeonky.jfactory.cucumber",
+                "--glue", "com.github.leeonky.cucumber.restful",
                 "src/test/resources"
             )
         }
