@@ -1,5 +1,6 @@
 package cc.secondbrain.trade.spec;
 
+import cc.secondbrain.trade.entity.DeliveryAccount;
 import cc.secondbrain.trade.entity.Investor;
 import cc.secondbrain.trade.entity.SecuritiesAccount;
 import com.github.leeonky.jfactory.Global;
@@ -10,5 +11,8 @@ public class Accounts {
     public static class 投資人 extends Spec<Investor> { }
 
     @Global
-    public static class 交割戶 extends Spec<SecuritiesAccount> { }
+    public static class 交割戶 extends Spec<DeliveryAccount> { }
+
+    @Global
+    public static class 證券戶 extends Spec<SecuritiesAccount> { }
 }

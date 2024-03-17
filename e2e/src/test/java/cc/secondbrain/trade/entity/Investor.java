@@ -21,5 +21,9 @@ public class Investor {
 
     @OneToOne(mappedBy = "investor", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
+    private DeliveryAccount delivery_account;
+
+    @OneToOne(mappedBy = "investor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private SecuritiesAccount securities_account;
 }
