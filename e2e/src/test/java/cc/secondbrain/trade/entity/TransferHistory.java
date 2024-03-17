@@ -19,7 +19,7 @@ public class TransferHistory {
 
     @ManyToOne
     @JsonIgnore
-    private DeliveryAccount delivery_account;
+    private DeliveryAccount deliveryAccount;
 
     private BigDecimal amount;
     private BigDecimal balance;

@@ -17,13 +17,13 @@ public class DeliveryAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String account_number;
+    private String accountNumber;
 
     @OneToOne
-    @JoinColumn(name = "investor_id", updatable = false)
+    @JoinColumn(name = "investorId", updatable = false)
     @JsonIgnore
     private Investor investor;
 
-    @OneToMany(mappedBy = "delivery_account", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TransferHistory> transfer_histories = new ArrayList<>();
+    @OneToMany(mappedBy = "deliveryAccount", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TransferHistory> transferHistories = new ArrayList<>();
 }

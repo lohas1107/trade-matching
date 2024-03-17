@@ -16,10 +16,10 @@ public class SecuritiesAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String account_number;
+    private String accountNumber;
 
     @OneToOne
-    @JoinColumn(name = "investor_id", updatable = false)
+    @JoinColumn(name = "investorId", updatable = false)
     @JsonIgnore
     private Investor investor;
 }
