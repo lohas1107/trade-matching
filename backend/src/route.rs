@@ -1,10 +1,12 @@
-use warp::{Filter, Rejection};
+use warp::{Filter, path, Rejection, Reply};
 
-pub fn route() -> impl Filter<Extract=(impl warp::Reply, ), Error=Rejection> + Clone {
+fn order_path() -> impl Filter<Extract = (), Error = Rejection> + Copy {
+    path!("v1" / "stack" / "orders")
+}
+
+pub fn route() -> impl Filter<Extract=(impl Reply, ), Error=Rejection> + Clone {
     let place_order = warp::post()
-        .and(warp::path("v1"))
-        .and(warp::path("stack"))
-        .and(warp::path("orders"))
+        .and(order_path())
         .map(warp::reply);
 
     place_order
