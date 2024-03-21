@@ -1,4 +1,5 @@
 mod route;
+mod order;
 
 #[tokio::main]
 async fn main() {
