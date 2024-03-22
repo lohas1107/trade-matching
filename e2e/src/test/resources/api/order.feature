@@ -19,3 +19,13 @@ Feature: 下單
       "share": 1000,
     }
     """
+    Then response should be:
+    """
+    : {
+      code: 201
+      body= {}
+    }
+    """
+#    那麼存在"交易紀錄":
+#      | account_number | action | code | price | share |
+#      | 9987654321     | BUY    | 2890 | 20    | 1000  |
