@@ -26,6 +26,7 @@ Feature: 下單
       body= {}
     }
     """
-#    那麼存在"交易紀錄":
-#      | account_number | action | code | price | share |
-#      | 9987654321     | BUY    | 2890 | 20    | 1000  |
+    Then all data "交易紀錄" should be:
+    """
+    .size=1
+    """
