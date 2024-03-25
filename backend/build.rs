@@ -1,3 +1,3 @@
 fn main() {
-    println!("hello, build.rs");
+    println!("cargo:rerun-if-changed=migrations");
 }

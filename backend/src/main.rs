@@ -1,5 +1,6 @@
 mod route;
 mod order;
+mod migration;
 
 #[tokio::main]
 async fn main() {
