@@ -1,3 +1,4 @@
 # https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html
 [workspace]
+resolver = "2"
 members = ["migrations", "stock"]
