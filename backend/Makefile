@@ -1,5 +1,7 @@
 migration:
 	cargo run --bin migrations
 
-backend:
-	cargo run
+stock:
+	cargo run --bin stock
+
+.PHONY: stock

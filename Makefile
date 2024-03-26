@@ -6,7 +6,7 @@ infra: $(INFRA_SUBDIR)
 	$(MAKE) -C infra
 
 backend: $(BACKEND_SUBDIR)
-	$(MAKE) -C backend
+	$(MAKE) -C backend stock
 
 e2e: $(E2E_SUBDIR)
 	$(MAKE) -C e2e
