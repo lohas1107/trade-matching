@@ -5,3 +5,7 @@ version = 3
 [[package]]
 name = "migrations"
 version = "0.1.0"
+
+[[package]]
+name = "stock"
+version = "0.1.0"
