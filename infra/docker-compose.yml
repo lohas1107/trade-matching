@@ -1,4 +1,15 @@
 services:
+  workspace:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: workspace
+    stdin_open: true
+    tty: true
+    ports:
+      - 3030:3030
+    volumes:
+      - ../../:/workspace
   mysql:
     platform: linux/amd64
     image: mysql:8.3.0

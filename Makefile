@@ -2,6 +2,9 @@ INFRA_SUBDIR = infra
 BACKEND_SUBDIR = backend
 E2E_SUBDIR = e2e
 
+workspace:
+	$(MAKE) DIR=$(INFRA_SUBDIR) -C infra workspace
+
 infra: $(INFRA_SUBDIR)
 	$(MAKE) -C infra
 
