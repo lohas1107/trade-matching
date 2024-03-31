@@ -801,6 +801,7 @@ name = "stock"
 version = "0.1.0"
 dependencies = [
  "diesel",
+ "log",
  "tokio",
  "warp",
 ]
