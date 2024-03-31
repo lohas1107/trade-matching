@@ -28,5 +28,8 @@ RUN apt update
 RUN apt install -y build-essential
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 
-FROM rust AS workspace
+FROM rust AS db
+RUN apt install -y libmysqlclient-dev
+
+FROM db AS workspace
 WORKDIR /workspace
