@@ -6,13 +6,16 @@ workspace:
 	$(MAKE) DIR=$(INFRA_SUBDIR) -C infra workspace
 
 infra: $(INFRA_SUBDIR)
-	$(MAKE) -C infra
+	$(MAKE) -C infra infra
 
 backend: $(BACKEND_SUBDIR)
 	$(MAKE) -C backend stock
 
 e2e: $(E2E_SUBDIR)
 	$(MAKE) -C e2e
+
+exit:
+	$(MAKE) -C infra exit
 
 .PHONY: $(INFRA_SUBDIR) $(E2E_SUBDIR)
 .PHONY: backend e2e
